@@ -1,0 +1,25 @@
+.types {
+	text-align: center;
+	margin-top: 100px;
+	
+	.badge {
+		background-color: @mainColor;
+	}
+	
+	.nav {
+		display: inline-block;
+		margin-left: 0;
+		margin-right: 0;
+		
+		.active>a, .active>a:hover, .active>a:focus {
+			background-color: @mainColor;
+			color: white;
+		}
+		
+		li>a, li:hover, li:focus {
+			color: @mainColor;
+		}
+	}
+
+}
+

@@ -1,0 +1,50 @@
+<% include common/header.ejs %>
+
+<div class="left types text-center">
+	<h2><span id="type">Усі піци</span> <span id="count" class="badge">8</span></h2>
+	<ul class="nav nav-pills">
+		<li id="all" class="active"><a href="#">Усі</a></li>
+		<li id="meat"><a href="#">М'ясні</a></li>
+		<li id="pineapple"><a href="#">З ананасоми</a></li>
+		<li id="mushroom"><a href="#">З грибами</a></li>
+		<li id="seafood"><a href="#">З морепродуктами</a></li>
+		<li id="vega"><a href="#">Вега</a></li>
+	</ul>
+</div>
+
+<div class="container-fluid list">
+	<div class="row left" id="pizza_list">
+	
+	</div>
+
+	<div class="order-panel">
+		<div class="top">
+			<span class="title">Замовлення</span><span class="badge" id="amountAllPizza">0</span><span class="titleRight"><a href="#">Очистити замовлення</a></span>
+		</div>
+		
+		<div class="no-orders">
+			<p>
+				Пусто в холодильнику?
+				<br>
+				Замовте піцу!
+			</p>
+		</div>
+		
+		<div class="orders">
+
+		</div>
+		
+		<div class="bottom">
+			
+			<p id="orderPriceBox">
+				<span class="orderTitle">Сума замовлення</span>
+				<span class="orderSum"><span id="totalSumOfOrder"></span> грн</span>
+			</p>
+			
+			<a href="http://localhost:5050/order.html" id="makeOrder" class="disabled btn btn-warning btn-lg">Замовити</a>
+			
+		</div>
+	</div>
+</div>
+
+<% include common/footer.ejs %>

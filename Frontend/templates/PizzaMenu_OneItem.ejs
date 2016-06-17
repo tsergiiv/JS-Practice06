@@ -1,0 +1,72 @@
+<%
+
+function getIngredientsArray(pizza) {
+    //Отримує вміст піци
+    var content = pizza.content;
+    var result = [];
+
+    //Object.keys повертає масив ключів в об’єкті JavaScript
+
+    Object.keys(content).forEach(function(key){
+
+        //a.concat(b) створює спільний масив із масивів a та b
+        result = result.concat(content[key]);
+    });
+
+    return result;
+}
+
+   %>
+<div class="col-md-6 col-lg-4 pizza-card">
+    <div class="thumbnail">
+        <img class="pizza-icon" src="<%= pizza.icon %>" alt="Pizza">
+
+        <% if(pizza.is_new) { %>
+        <span class="label label-danger">Нова</span>
+        <% } else if(pizza.is_popular) {%>
+        <span class="label label-success">Популярна</span>
+        <% } %>
+
+        <div class="caption">
+            <h2><%= pizza.title %></h2>
+            <div class="type"><%= pizza.type %></div>
+            <div class="description">
+                <%= getIngredientsArray(pizza).join(", ") %>
+            </div>
+			
+			<div class="row info">
+				<% if(pizza.small_size) { %>
+					<% if(pizza.big_size) { %>
+					<div class="col-xs-6">
+					<% } else { %>
+					<div class="col-xs-12">
+					<% } %>
+						<p><img src="assets/images/size-icon.svg" /> <%= pizza.small_size.size %></p>
+						<p><img src="assets/images/weight.svg" /> <%= pizza.small_size.weight %></p>
+						<h1><%= pizza.small_size.price %></h1>
+						<span>грн.</span>
+						<button class="btn btn-warning buy-small">Купити</button>
+					</div>
+				<% } %>
+				
+				<% if(pizza.big_size) { %>
+					<% if(pizza.small_size) { %>
+					<div class="col-xs-6">
+					<% } else { %>
+					<div class="col-xs-12">
+					<% } %>
+						<p><img src="assets/images/size-icon.svg" /> <%= pizza.big_size.size %></p>
+						<p><img src="assets/images/weight.svg" /> <%= pizza.big_size.weight %></p>
+						<h1><%= pizza.big_size.price %></h1>
+						<span>грн.</span>
+						<button class="btn btn-warning buy-big">Купити</button>
+					</div>
+				<% } %>
+				
+				
+			</div>
+        </div>
+
+        <!-- Перед тим щоб показати кнопку необхідно переконатися, що піца має великий розмір -->
+    </div>
+</div>
